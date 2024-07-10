@@ -22,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
+      <Router basename="/my-material-ui-app">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />

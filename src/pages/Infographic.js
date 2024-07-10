@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Link, Divider } from '@mui/material';
+import { Container, Typography, Grid, Card, CardContent, CardMedia, Link, Divider,Box } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 // Importa makeStyles desde @mui/styles en lugar de @mui/material/styles
 import { makeStyles } from '@mui/styles';
@@ -11,6 +11,7 @@ import ejpractico from '../resources/ejemplopractico.jpeg';
 import ZoomableImage from '../components/ZoomableImage';
 import VideoComponent from '../components/VideoComponent';
 import FloatingNotePad from '../components/FloatingNotePad';
+
 const useStyles = makeStyles((theme) => ({
   scrollTop: {
     position: 'fixed',
@@ -42,6 +43,13 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       opacity: 0.8,
     }
+  },
+  container: {
+     // Color de fondo rosita semi transparente
+    padding: theme.spacing(3),
+    borderRadius: theme.shape.borderRadius,
+    marginTop: theme.spacing(4),
+    boxShadow: theme.shadows[3],
   },
   
   show: {
@@ -86,6 +94,7 @@ function Infographic() {
               height="300"
               image={imagenPatente}
               title="Patentes"
+              color="rgba(255, 182, 193, 0.25)"
             />
             <CardContent>
               <Typography variant="h4" component="h4" gutterBottom id="titulo1">
@@ -168,6 +177,7 @@ function Infographic() {
 
       {/* Subtítulos */}
       
+
       <section id="tituloPat">
       <Divider sx={{ margin: '20px 0', height: 4}} />
       <Typography variant="h4" component="h4" gutterBottom>
@@ -175,6 +185,9 @@ function Infographic() {
         </Typography>
         <Divider sx={{ margin: '20px 0', height: 4 }} />
         </section>
+      
+        <Box className={classes.container} sx={{backgroundColor: 'rgba(255, 182, 193, 0.25)'}} >
+      
       <section id="patentes1">
         <Typography variant="h4" component="h4" gutterBottom>
           ¿Qué son las Patentes?
@@ -285,6 +298,8 @@ function Infographic() {
         </Typography>
       </section>
 
+      </Box>
+
 
       <section id="tituloPr">
       <Divider sx={{ margin: '20px 0', height: 4}} />
@@ -294,6 +309,8 @@ function Infographic() {
         <Divider sx={{ margin: '20px 0', height: 4}} />
 
         </section>
+
+        <Box className={classes.container} sx={{backgroundColor: 'rgba(150, 255, 193, 0.25)'}} >
         <section id="instalaciones1">
         <Typography variant="h4" component="h4" gutterBottom>
         ¿Qué es un Proyecto Gral. de Instalación Industrial? 
@@ -533,6 +550,10 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
 
        </Typography>
       </section>
+
+      </Box>
+
+
       <section id="tituloGoz">
       <Divider sx={{ margin: '20px 0', height: 4}} />
       <Typography variant="h4" component="h4" gutterBottom>
@@ -540,6 +561,10 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
         </Typography>
         <Divider sx={{ margin: '20px 0', height: 4}} />
         </section>
+
+
+        <Box className={classes.container} sx={{backgroundColor: 'rgba(144, 150, 193, 0.25)'}} >
+
       <section id="gozinto1">
         <Typography variant="h4" component="h4" gutterBottom>
      Origen
@@ -623,7 +648,16 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
 
        </ul>
        </Typography>
+       
       </section>
+
+
+
+      
+      </Box>
+
+
+
 
       {/* Botón de scroll al inicio */}
       <div
