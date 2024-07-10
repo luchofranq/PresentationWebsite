@@ -13,6 +13,8 @@ import VideoComponent from '../components/VideoComponent';
 import FloatingNotePad from '../components/FloatingNotePad';
 
 const useStyles = makeStyles((theme) => ({
+
+  
   scrollTop: {
     position: 'fixed',
     bottom: theme.spacing(8),
@@ -28,22 +30,8 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       opacity: 0.8,
     }
-  },notepad: {
-    position: 'fixed',
-    bottom: theme.spacing(8),
-    right: theme.spacing(2),
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    zIndex: theme.zIndex.appBar + 1,
-    borderRadius: theme.shape.borderRadius,
-    padding: theme.spacing(1),
-    cursor: 'pointer',
-    transition: 'opacity 0.3s ease',
-    opacity: 0,
-    '&:hover': {
-      opacity: 0.8,
-    }
-  },
+  }
+  ,
   container: {
      // Color de fondo rosita semi transparente
     padding: theme.spacing(3),
@@ -65,19 +53,20 @@ function Infographic() {
 
   useEffect(() => {
     const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 400) {
+      if (!showScroll && window.scrollY > 400) {
         setShowScroll(true);
-      } else if (showScroll && window.pageYOffset <= 400) {
+      } else if (showScroll && window.scrollY <= 400) {
         setShowScroll(false);
       }
     };
-
+  
     window.addEventListener('scroll', checkScrollTop);
-
+  
     return () => {
       window.removeEventListener('scroll', checkScrollTop);
     };
   }, [showScroll]);
+  
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -219,6 +208,7 @@ function Infographic() {
           <strong>Competitividad:</strong> Las patentes pueden ser una ventaja competitiva significativa al permitir a las empresas proteger sus avances tecnológicos y diferenciarse en el mercado.
         </Typography>
       </section>
+
       <section id="patentes3">
         <Typography variant="h4" component="h4" gutterBottom>
           Uso de las Patentes en los Procesos de Producción
@@ -233,23 +223,30 @@ function Infographic() {
           <strong>Control de Calidad:</strong> Las patentes pueden ser utilizadas para estandarizar y controlar los procesos de producción, asegurando consistencia y cumplimiento de estándares.
         </Typography>
       </section>
+
       <section id="patentes4">
         <Typography variant="h4" component="h4" gutterBottom>
           Casos en los que se usa
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           Las patentes se aplican en una amplia gama de industrias y sectores, incluyendo:
-          <ul>
-          <li>Industria farmacéutica y biotecnología.</li>
-          <li>Tecnología de la información y comunicación.</li>
-          <li>Automoción y fabricación.</li>
-          <li>Electrónica y semiconductores.</li>
-          <li>Química y materiales.</li>
-          <li>Alimentos y bebidas.</li>
-          <li>Energía y medio ambiente.</li>
-          <li>Entre otros.</li>
+          </Typography>
+          
+        <ul>
+          <li><Typography variant="body2" color="textSecondary" component="p">
+          Industria farmacéutica y biotecnología.
+         </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">
+          Tecnología de la información y comunicación.
+         </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Automoción y fabricación.</Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Electrónica y semiconductores.</Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Química y materiales.</Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Alimentos y bebidas.</Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Energía y medio ambiente.</Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Entre otros.</Typography></li>
         </ul>
-        </Typography>
+        
        
       </section>
       <section id="patentes5">
@@ -258,21 +255,22 @@ function Infographic() {
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           El procedimiento para obtener una patente puede variar según el país y la jurisdicción, pero generalmente implica los siguientes pasos:
-          <ol>
-          <li>Investigación y evaluación de la novedad.</li>
-          <li>Preparación de la solicitud de patente.</li>
-          <li>Presentación de la solicitud ante la oficina de patentes.</li>
-          <li>Evaluación y examen por parte de la oficina de patentes.</li>
-          <li>Publicación y divulgación de la patente.</li>
-          <li>Concesión o rechazo de la patente.</li>
+          </Typography>
+        <ol>
+          <li><Typography variant="body2" color="textSecondary" component="p">Investigación y evaluación de la novedad. </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Preparación de la solicitud de patente. </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Presentación de la solicitud ante la oficina de patentes. </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Evaluación y examen por parte de la oficina de patentes. </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Publicación y divulgación de la patente. </Typography></li>
+          <li><Typography variant="body2" color="textSecondary" component="p">Concesión o rechazo de la patente. </Typography></li>
         </ol>
-        </Typography>
+    
        
       </section>
 
-      <div className={classes.container}>
+      <Box>
       <ZoomableImage src={patentedimg}alt="Obtencion de la patente" />
-    </div>
+      </Box>
 
       <section id="patentes6">
         <Typography variant="h4" component="h4" gutterBottom>
@@ -280,13 +278,14 @@ function Infographic() {
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
           A pesar de sus beneficios, las patentes también presentan desafíos y consideraciones importantes:
-          <ul>
-          <li>Costos y recursos necesarios para obtener y mantener una patente.</li>
-          <li>Procesos legales y litigios relacionados con la infracción de patentes.</li>
-          <li>Periodo limitado de protección (generalmente 20 años).</li>
-          <li>Equilibrio entre la protección de derechos y la promoción de la competencia y la innovación abierta.</li>
+          </Typography >
+        <ul>
+          <li>  <Typography variant="body2" color="textSecondary" component="p">Costos y recursos necesarios para obtener y mantener una patente.</Typography ></li>
+          <li>  <Typography variant="body2" color="textSecondary" component="p">Procesos legales y litigios relacionados con la infracción de patentes.</Typography ></li>
+          <li>  <Typography variant="body2" color="textSecondary" component="p">Periodo limitado de protección (generalmente 20 años).</Typography ></li>
+          <li>  <Typography variant="body2" color="textSecondary" component="p">Equilibrio entre la protección de derechos y la promoción de la competencia y la innovación abierta.</Typography ></li>
         </ul>
-        </Typography >
+      
        
       </section>
       <section id="patentes7">
@@ -316,8 +315,10 @@ function Infographic() {
         ¿Qué es un Proyecto Gral. de Instalación Industrial? 
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-        Es una idea que se piensa materializar mediante la utilización de todos los recursos como cálculos o dibujos que se realizan con la finalidad de definir qué se quiere alcanzar, objetivos del proyecto y la manera en la que se ejecutará.   </Typography>
+        Es una idea que se piensa materializar mediante la utilización de todos los recursos como cálculos o dibujos que se realizan con la finalidad de definir qué se quiere alcanzar, objetivos del proyecto y la manera en la que se ejecutará.
+           </Typography>
       </section>
+
       <section id="instalaciones2">
         <Typography variant="h4" component="h4" gutterBottom>
 
@@ -329,6 +330,7 @@ function Infographic() {
 
        </Typography>
       </section>
+
       <section id="instalaciones3">
         <Typography variant="h4" component="h4" gutterBottom>
 
@@ -345,9 +347,10 @@ function Infographic() {
 
        </Typography>
       </section>
-      <div>
+
+    <Box>
       <VideoComponent />
-    </div>
+    </Box>
       <section id="instalaciones4">
         <Typography variant="h4" component="h4" gutterBottom>
 
@@ -375,18 +378,18 @@ function Infographic() {
 
        </Typography>
       </section>
+
       <section id="instalaciones6">
         <Typography variant="h4" component="h4" gutterBottom>
 
         Tipos de instalaciones industriales
        
-        
         </Typography>
 
         
-        <Typography variant="body2" color="textSecondary" component="p">
+        
         <ul> 
-            <li><strong>Instalaciones industriales eléctricas:</strong>
+            <li><Typography variant="body2" color="textSecondary" component="p"><strong>Instalaciones industriales eléctricas:</strong></Typography>
             <Typography variant="body2" color="textSecondary" component="p">
             Incluyen trabajos como la entrada de servicio de la compañía eléctrica, la generación 
             eléctrica in situ, la distribución de esta energía eléctrica hacia la planta, el control de la energía, la puesta a tierra, y la protección eléctrica. 
@@ -400,8 +403,9 @@ function Infographic() {
             </Typography>
             </li>
             <li>
+            <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Instalaciones industriales mecánicas:</strong>
-            
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
 
                 Pueden abarcar desde la instalación de tuberías de proceso y la instalación de sistemas mecánicos industriales, hasta la instalación de sistemas de bombeo y el montaje mecánico de las líneas de producción. 
@@ -411,7 +415,9 @@ function Infographic() {
             </li>
 
             <li>
+            <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Instalaciones industriales neumáticas:</strong>
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                 Este tipo de instalaciones se basan en la instalación de tuberías para distribuir aire 
 comprimido a herramientas, equipos de producción y maquinaria de la cadena de 
@@ -421,7 +427,9 @@ producción.
 
             </li>
             <li>
+            <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Instalaciones industriales hidráulicas:</strong>
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
 
                 Son muy similares a las neumáticas. La diferencia es que como medio de generación de fuerza utilizan diferentes fluidos. 
@@ -429,11 +437,12 @@ producción.
                 <Typography variant="body2" color="textSecondary" component="p">
                 La instalación consta de las tuberías para distribuir este fluido y varios componentes como depósitos donde se almacena el fluido, bombas hidráulicas, válvulas y actuadores como motores y cilindros. 
 
-
-</Typography>
+                  </Typography>
             </li>
             <li>
+            <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Instalaciones de maquinaria industrial: </strong>
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
 
                 Las empresas especializadas en este rubro suelen realizar todo el proceso de traslado, instalación y puesta en marcha de una máquina nueva o usada. 
@@ -446,7 +455,9 @@ producción.
 
             </li>
             <li>
+            <Typography variant="body2" color="textSecondary" component="p">
                 <strong>Instalaciones de seguridad industrial: </strong>
+                </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
 
                 Están destinadas a las prácticas de gestión de la seguridad que se aplican en la planta de producción.
@@ -463,52 +474,60 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
             </li>
         </ul>
 
-       </Typography>
+       
       </section>
+
+
       <section id="instalaciones7">
         <Typography variant="h4" component="h4" gutterBottom>
 
         Ventajas
         
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        
         <ol>
-            <li>  <strong>Eficiencia operativa:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p">
+              <strong>Eficiencia operativa:</strong>
+                  </Typography>
                   <ul>
-                      <li>Automatizacion de procesos</li>
+                      <li><Typography variant="body2" color="textSecondary" component="p">Automatizacion de procesos </Typography></li>
                   </ul>
             </li>
-            <li>  <strong>Reduccion de costos:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Reduccion de costos:</strong></Typography>
                   <ul>
-                      <li>Economias de escala:</li>
-                      Producción en grandes volúmenes reduce los costos unitarios. 
-                      <li>Mantenimiento preventivo</li>
+                      <li>
+                        <Typography variant="body2" color="textSecondary" component="p">Economias de escala: </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">Producción en grandes volúmenes reduce los costos unitarios.  </Typography>
+                      </li>
+                      <li><Typography variant="body2" color="textSecondary" component="p">Mantenimiento preventivo </Typography></li>
                   </ul>
             </li>
-            <li>  <strong>Seguridad y salud ocupacional:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Seguridad y salud ocupacional:</strong></Typography>
                   <ul>
-                      <li>Cumplimiento normativo:</li>
-                      Las instalaciones industriales diseñadas y operadas bajo normativas estrictas minimizan riesgos laborales.
+                      <li><Typography variant="body2" color="textSecondary" component="p">Cumplimiento normativo: </Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p"> Las instalaciones industriales diseñadas y operadas bajo normativas estrictas minimizan riesgos laborales. 
+
+                      </Typography>
                   </ul>
             </li>
-            <li>  <strong>Reduccion de riesgos:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Reduccion de riesgos:</strong></Typography>
                   <ul>
-                      <li>Sistemas de prevencion y control:</li>
-                      Instalaciones equipadas con sistemas de prevención y control de incendios, manejo de materiales peligrosos, y respuesta a emergencias. 
+                      <li><Typography variant="body2" color="textSecondary" component="p">Sistemas de prevencion y control: </Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p"> Instalaciones equipadas con sistemas de prevención y control de incendios, manejo de materiales peligrosos, y respuesta a emergencias.  </Typography>
                   </ul>
             </li>
-            <li>  <strong>Gestion eficiente de recursos:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Gestion eficiente de recursos:</strong></Typography>
                   <ul>
-                      <li>Reduccion de residuos:</li>
-                      Procesos optimizados y tecnologías de reciclaje reducen la generación de residuos. 
-                      <li>Eficiencia energetica:</li>
-                      Uso de tecnologías y prácticas que reducen el consumo de energía y aumentan la eficiencia. 
+                      <li><Typography variant="body2" color="textSecondary" component="p">Reduccion de residuos: </Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p">Procesos optimizados y tecnologías de reciclaje reducen la generación de residuos.  </Typography>
+                      <li><Typography variant="body2" color="textSecondary" component="p">Eficiencia energetica: </Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p"> Uso de tecnologías y prácticas que reducen el consumo de energía y aumentan la eficiencia.  </Typography>
                   </ul>
             </li>
 
         </ol>
 
-       </Typography>
+       
       </section>
       <section id="instalaciones8">
         <Typography variant="h4" component="h4" gutterBottom>
@@ -516,39 +535,39 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
         Desventajas
         
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        
         <ol>
-            <li>  <strong>Contaminacion:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Contaminacion:</strong> </Typography>
                   <ul>
-                      <li>Ruido y vibraciones:</li>
-                      La operación de maquinaria pesada puede generar ruido y vibraciones que afectan a las comunidades circundantes. 
+                      <li><Typography variant="body2" color="textSecondary" component="p">Ruido y vibraciones:</Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p"> La operación de maquinaria pesada puede generar ruido y vibraciones que afectan a las comunidades circundantes. </Typography>
                   </ul>
             </li>
-            <li>  <strong>Consumo de recursos:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Consumo de recursos:</strong></Typography>
                   <ul>
-                      <li>Degradacion ambiental:</li>
-                      El uso intensivo de recursos naturales puede llevar a la degradación ambiental y agotamiento de recursos. 
+                      <li><Typography variant="body2" color="textSecondary" component="p">Degradacion ambiental:</Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p"> El uso intensivo de recursos naturales puede llevar a la degradación ambiental y agotamiento de recursos. </Typography>
                       
                   </ul>
             </li>
-            <li>  <strong>Emergencias y desastres:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Emergencias y desastres:</strong></Typography>
                   <ul>
-                      <li>Desastres naturales:</li>
-                      Pueden ser vulnerables a desastres naturales como terremotos, inundaciones y huracanes. 
+                      <li><Typography variant="body2" color="textSecondary" component="p">Desastres naturales:</Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p">Pueden ser vulnerables a desastres naturales como terremotos, inundaciones y huracanes. </Typography>
                   </ul>
             </li>
-            <li>  <strong>Adaptacion al cambio:</strong>
+            <li>  <Typography variant="body2" color="textSecondary" component="p"><strong>Adaptacion al cambio:</strong></Typography>
                   <ul>
-                      <li>Inflexibilidad:</li>
-                      Las instalaciones industriales grandes y complejas pueden ser menos flexibles y más difíciles de adaptar a cambios rápidos en la demanda del mercado.   
-                      <li>Costos de reestauracion:</li>
-                      Puede ser costosa y llevar tiempo.
+                      <li><Typography variant="body2" color="textSecondary" component="p">Inflexibilidad:</Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p">Las instalaciones industriales grandes y complejas pueden ser menos flexibles y más difíciles de adaptar a cambios rápidos en la demanda del mercado.   </Typography>
+                      <li><Typography variant="body2" color="textSecondary" component="p">Costos de reestauracion:</Typography></li>
+                      <Typography variant="body2" color="textSecondary" component="p">Puede ser costosa y llevar tiempo.</Typography>
                   </ul>
             </li>
            
         </ol>
 
-       </Typography>
+       
       </section>
 
       </Box>
@@ -593,9 +612,13 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
        <strong>a,b,c,d,e,f,:</strong> Materia prima 
        </Typography>
       </section>
-      <div className={classes.container}>
+
+
+      <Box>
       <ZoomableImage src={imagenGozinto}alt="Diagrama de Gozinto ejemplo" />
-    </div>
+    </Box>
+
+
       <section id="gozinto3">
         <Typography variant="h4" component="h4" gutterBottom>
      ¿Para que sirve?
@@ -619,35 +642,35 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
 
        </Typography>
       </section>
-      <div className={classes.container}>
+      <Box>
       <ZoomableImage src={ejpractico}alt="Diagrama de Gozinto ejemplo" />
-    </div>
+    </Box>
       <section id="gozinto5">
         <Typography variant="h4" component="h4" gutterBottom>
      Ventajas
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+   
        <ul>
-            <li><strong>Claridad:</strong>ofrece una visión nítida de las relaciones entre componentes</li>
-            <li><strong>Mejor planificacion:</strong> facilita planificación de inventario </li>
-            <li><strong>Facilita el costeo:</strong>permite calcular fácilmente los costos de producción </li>
+            <li>     <Typography variant="body2" color="textSecondary" component="p"><strong>Claridad:</strong>ofrece una visión nítida de las relaciones entre componentes</Typography></li>
+            <li>     <Typography variant="body2" color="textSecondary" component="p"><strong>Mejor planificacion:</strong> facilita planificación de inventario </Typography></li>
+            <li>     <Typography variant="body2" color="textSecondary" component="p"><strong>Facilita el costeo:</strong>permite calcular fácilmente los costos de producción </Typography></li>
 
        </ul>
-       </Typography>
+       
       </section>
 
       <section id="gozinto6">
         <Typography variant="h4" component="h4" gutterBottom>
      Desventajas
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
+        
         <ul>
-            <li><strong>Complejidad:</strong>Puede volverse muy complejo para productos con muchas partes y niveles jerárquicos.</li>
-            <li><strong>Actualizacion constante:</strong> Requiere actualizaciones frecuentes para reflejar cambios en el diseño del producto o en el proceso de producción. </li>
-            <li><strong>Limitado a productos fisicos:</strong>Es menos útil para productos o servicios intangibles. </li>
+            <li><Typography variant="body2" color="textSecondary" component="p"><strong>Complejidad:</strong>Puede volverse muy complejo para productos con muchas partes y niveles jerárquicos. </Typography></li>
+            <li><Typography variant="body2" color="textSecondary" component="p"><strong>Actualizacion constante:</strong> Requiere actualizaciones frecuentes para reflejar cambios en el diseño del producto o en el proceso de producción.  </Typography></li>
+            <li><Typography variant="body2" color="textSecondary" component="p"><strong>Limitado a productos fisicos:</strong>Es menos útil para productos o servicios intangibles.  </Typography></li>
 
        </ul>
-       </Typography>
+      
        
       </section>
 
@@ -660,12 +683,13 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
 
 
       {/* Botón de scroll al inicio */}
-      <div
-        className={`${classes.scrollTop} ${showScroll ? classes.show : ''}`}
-        onClick={scrollTop}
-      >
-        <KeyboardArrowUpIcon />
-      </div>
+     <button
+  className={`${classes.scrollTop} ${showScroll ? classes.show : ''}`}
+  onClick={scrollTop}
+>
+  <KeyboardArrowUpIcon />
+</button>
+
 {/* Botón de notepad*/}
     <FloatingNotePad />
     </Container>

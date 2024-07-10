@@ -33,13 +33,14 @@ function CustomCarousel() {
 
   return (
     <Carousel interval={5000}>
-      {items.map((item, i) => (
-        <Paper key={i}>
+      {items.map((item) => (
+        <Paper key={item.name}>
           <img src={item.img} alt={item.name} style={{ width: '100%', height: '100vh', objectFit: 'cover' }} />
         </Paper>
       ))}
     </Carousel>
   );
+  
 }
 
 export default CustomCarousel;

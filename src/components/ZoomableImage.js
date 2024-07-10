@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/material';
+import PropTypes from 'prop-types'; // Importa PropTypes
 
 const useStyles = makeStyles(() => ({
   container: {
-   
     maxWidth: '800px',
     display: 'flex',
     justifyContent: 'center',
@@ -13,8 +13,7 @@ const useStyles = makeStyles(() => ({
     minHeight: '100vh',
   },
   image: {
-  
-    maxWidth:'800px',
+    maxWidth: '800px',
     transition: 'transform 0.3s ease-in-out',
   },
   zoomed: {
@@ -39,6 +38,12 @@ const ZoomableImage = ({ src, alt }) => {
       />
     </Box>
   );
+};
+
+// Definir PropTypes para las propiedades del componente
+ZoomableImage.propTypes = {
+  src: PropTypes.string.isRequired, // src debe ser una cadena y requerida
+  alt: PropTypes.string, // alt debe ser una cadena, pero no es requerida
 };
 
 export default ZoomableImage;
