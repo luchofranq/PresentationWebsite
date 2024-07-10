@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/presentation-website/static/css/main.e6c13ad2.css",
-    "main.js": "/presentation-website/static/js/main.10cbff62.js",
+    "main.js": "/presentation-website/static/js/main.70ed052a.js",
     "static/media/planta.mp4": "/presentation-website/static/media/planta.305400207cb575935df8.mp4",
     "static/media/patented.jpg": "/presentation-website/static/media/patented.f63a513a9e4196c74ac1.jpg",
     "static/media/naval.png": "/presentation-website/static/media/naval.00b979964ab5a7bca036.png",
@@ -12,10 +12,10 @@
     "static/media/gozintoimg.jpeg": "/presentation-website/static/media/gozintoimg.3e804af8091a9e22356c.jpeg",
     "index.html": "/presentation-website/index.html",
     "main.e6c13ad2.css.map": "/presentation-website/static/css/main.e6c13ad2.css.map",
-    "main.10cbff62.js.map": "/presentation-website/static/js/main.10cbff62.js.map"
+    "main.70ed052a.js.map": "/presentation-website/static/js/main.70ed052a.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.10cbff62.js"
+    "static/js/main.70ed052a.js"
   ]
 }
