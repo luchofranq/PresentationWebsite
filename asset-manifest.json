@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/presentation-website/static/css/main.e6c13ad2.css",
+    "main.js": "/presentation-website/static/js/main.10cbff62.js",
+    "static/media/planta.mp4": "/presentation-website/static/media/planta.305400207cb575935df8.mp4",
+    "static/media/patented.jpg": "/presentation-website/static/media/patented.f63a513a9e4196c74ac1.jpg",
+    "static/media/naval.png": "/presentation-website/static/media/naval.00b979964ab5a7bca036.png",
+    "static/media/patenteimg.jpeg": "/presentation-website/static/media/patenteimg.4c024ec51394da358513.jpeg",
+    "static/media/ejemplopractico.jpeg": "/presentation-website/static/media/ejemplopractico.1a83f939b724ed5fab00.jpeg",
+    "static/media/proyectoimg.jpeg": "/presentation-website/static/media/proyectoimg.acf8a91054e9a04e166e.jpeg",
+    "static/media/logo.png": "/presentation-website/static/media/logo.9e2f2842dee5ec661f71.png",
+    "static/media/gozintoimg.jpeg": "/presentation-website/static/media/gozintoimg.3e804af8091a9e22356c.jpeg",
+    "index.html": "/presentation-website/index.html",
+    "main.e6c13ad2.css.map": "/presentation-website/static/css/main.e6c13ad2.css.map",
+    "main.10cbff62.js.map": "/presentation-website/static/js/main.10cbff62.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.10cbff62.js"
+  ]
+}
