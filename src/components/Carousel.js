@@ -10,37 +10,51 @@ import ej from '../resources/ejemplopractico.jpeg';
 function CustomCarousel() {
   const items = [
     {
+      id: 'patente1',
       name: "Patente 1",
       img: patente 
     },
     {
+      id: 'proyecto1',
       name: "Proyecto 1",
       img: proyecto 
     },
     {
+      id: 'gozinto1',
       name: "Gozinto 1",
       img: gozinto 
     },
     {
+      id: 'patente2',
       name: "Patente 2",
       img: patente2 
     },
     {
-      name: "Gozinto 2",
+      id: 'ejemplopractico1',
+      name: "Ejemplo Práctico 1",
       img: ej 
     }
   ];
 
   return (
-    <Carousel interval={5000}>
+    <Carousel
+      interval={5000}
+      animation="slide"
+      navButtonsAlwaysVisible={true}
+      indicators={false}
+      timeout={500}
+    >
       {items.map((item) => (
-        <Paper key={item.name}>
-          <img src={item.img} alt={item.name} style={{ width: '100%', height: '100vh', objectFit: 'cover' }} />
+        <Paper key={item.id} style={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
+          <img
+            src={item.img}
+            alt={item.name}
+            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
+          />
         </Paper>
       ))}
     </Carousel>
   );
-  
 }
 
 export default CustomCarousel;

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+
 import { Container, Typography, Grid, Card, CardContent, CardMedia, Link, Divider,Box } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// Importa makeStyles desde @mui/styles en lugar de @mui/material/styles
+
 import { makeStyles } from '@mui/styles';
 import imagenPatente from '../resources/patenteimg.jpeg';
 import imagenProyecto from '../resources/proyectoimg.jpeg';
@@ -11,69 +10,48 @@ import ejpractico from '../resources/ejemplopractico.jpeg';
 import ZoomableImage from '../components/ZoomableImage';
 import VideoComponent from '../components/VideoComponent';
 import FloatingNotePad from '../components/FloatingNotePad';
-
+import ScrollUpButton from '../components/ScrollUpButton';
 const useStyles = makeStyles((theme) => ({
-
-  
-  scrollTop: {
-    position: 'fixed',
-    bottom: theme.spacing(8),
-    right: theme.spacing(2),
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.contrastText,
-    zIndex: theme.zIndex.appBar + 1,
-    borderRadius: theme.shape.borderRadius,
-    padding: theme.spacing(1),
-    cursor: 'pointer',
-    transition: 'opacity 0.3s ease',
-    opacity: 0,
-    '&:hover': {
-      opacity: 0.8,
-    }
-  }
-  ,
   container: {
-     // Color de fondo rosita semi transparente
     padding: theme.spacing(3),
     borderRadius: theme.shape.borderRadius,
     marginTop: theme.spacing(4),
     boxShadow: theme.shadows[3],
+    position: 'relative',
+    minHeight: '100vh', // Asegura que el contenido ocupe al menos toda la altura de la pantalla
   },
-  
-  show: {
-    opacity: 1,
-  }
+ 
+  floatingNotePad: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+    zIndex: theme.zIndex.tooltip + 1, // Asegura que esté por encima del botón de scroll
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
+  scrollButton: {
+    position: 'fixed',
+    bottom: theme.spacing(15),
+    right: theme.spacing(2),
+    zIndex: theme.zIndex.tooltip + 1, // Asegura que esté por encima del botón de scroll
+    display: 'none',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+    },
+  },
 }));
-
-
 
 function Infographic() {
   const classes = useStyles();
-  const [showScroll, setShowScroll] = useState(false);
-
-  useEffect(() => {
-    const checkScrollTop = () => {
-      if (!showScroll && window.scrollY > 400) {
-        setShowScroll(true);
-      } else if (showScroll && window.scrollY <= 400) {
-        setShowScroll(false);
-      }
-    };
-  
-    window.addEventListener('scroll', checkScrollTop);
-  
-    return () => {
-      window.removeEventListener('scroll', checkScrollTop);
-    };
-  }, [showScroll]);
   
 
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+ 
+ 
 
   return (
-    <Container>
+    <Container className='classes.container'>
       <Grid container spacing={4}>
         <Grid item xs={12} md={4}>
           <Card>
@@ -156,7 +134,7 @@ function Infographic() {
                 <li><Link href="#gozinto4">Realizacion</Link></li>
                 <li><Link href="#gozinto5">Ventajas</Link></li>
                 <li><Link href="#gozinto6">Desventajas</Link></li>
-                <li><Link href="#gozinto7">Ejemplos</Link></li>
+              
                 
               </ul>
             </CardContent>
@@ -682,16 +660,10 @@ Pueden comprender trabajos de instalación de detectores perimetrales, de vallad
 
 
 
-      {/* Botón de scroll al inicio */}
-     <button
-  className={`${classes.scrollTop} ${showScroll ? classes.show : ''}`}
-  onClick={scrollTop}
->
-  <KeyboardArrowUpIcon />
-</button>
+     <ScrollUpButton className={classes.scrollButton}></ScrollUpButton>
 
-{/* Botón de notepad*/}
-    <FloatingNotePad />
+      {/* Floating Notepad */}
+      <FloatingNotePad className={classes.floatingNotePad} />
     </Container>
   );
 }

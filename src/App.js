@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Infographic from './pages/Infographic';
 import logo from './resources/logo.png';
 import { Helmet } from 'react-helmet';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -17,6 +18,13 @@ const theme = createTheme({
       main: '#f50057',
     },
   },
+  typography: {
+    fontFamily: [
+      'Arial',
+      'Helvetica',
+      'sans-serif',
+    ].join(','),
+  },
 });
 
 function App() {
@@ -24,7 +32,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router basename="/presentation-website">
-      <Helmet>
+        <Helmet>
           <title>Gestión de los Procesos Productivos</title>
           <link rel="icon" type="image/png" href={logo} />
         </Helmet>

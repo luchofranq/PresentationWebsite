@@ -37,6 +37,7 @@ const FloatingNotePad = () => {
       {isVisible && (
         <div
           style={{
+            
             position: 'fixed',
             bottom: 70,
             right: 20,
